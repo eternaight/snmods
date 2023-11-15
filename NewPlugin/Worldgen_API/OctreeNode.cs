@@ -12,7 +12,7 @@ namespace NewPlugin.WorldgenAPI
 
         public OctreeNode(Int3 origin, int size)
         {
-            this.payload = null;
+            this.payload = new VoxelPayload(float.NegativeInfinity, 1);
             this.origin = origin;
             this.size = size;
             children = null;
@@ -22,15 +22,25 @@ namespace NewPlugin.WorldgenAPI
 
         public void Subdivide()
         {
-            for (int c = 0; c < 8; c++) 
+            if (!HasChildren) 
             {
-                children[c] = new OctreeNode(origin + childOffsets[c] * size / 2, size / 2);
+                children = new OctreeNode[8];
+                for (int c = 0; c < 8; c++) 
+                {
+                    children[c] = new OctreeNode(origin + childOffsets[c] * size / 2, size / 2)
+                    {
+                        payload = new VoxelPayload(payload.signedDistance, payload.SolidType)
+                    };
+                    children[c].payload.entityData.AddRange(payload.entityData.Where(ent => children[c].CoversVoxelPosition(ent.GetVoxelPosition())));
+                }
             }
+
+            payload.entityData.Clear();
         }
 
         public void CollectPayloadsAndBecomeLeaf()
         {
-            payload.CopyFrom(children[0].payload);
+            payload = children[0].payload;
 
             for (int c = 1; c < 8; c++)
             {
@@ -56,6 +66,12 @@ namespace NewPlugin.WorldgenAPI
                 var mostCommonChildType = children.Where(child => child.payload.IsNearSurface()).GroupBy(child => child.payload.SolidType).OrderByDescending(entry => entry.Count()).First().Key;
                 payload = new VoxelPayload(enumNearSD.Average(), mostCommonChildType);
             }
+        }
+
+        public bool CoversVoxelPosition(UnityEngine.Vector3 voxelPosition)
+        {
+            return  voxelPosition.x >= origin.x && voxelPosition.y >= origin.y && voxelPosition.z >= origin.z && 
+                    voxelPosition.x < origin.x + size && voxelPosition.y < origin.y + size && voxelPosition.z < origin.z + size;
         }
 
         private static readonly Int3[] childOffsets = 

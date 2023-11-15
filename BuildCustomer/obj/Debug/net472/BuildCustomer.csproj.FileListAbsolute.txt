@@ -1,0 +1,13 @@
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\obj\Debug\net472\BuildCustomer.csproj.AssemblyReference.cache
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\obj\Debug\net472\PluginInfo.cs
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\obj\Debug\net472\BuildCustomer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\obj\Debug\net472\BuildCustomer.AssemblyInfoInputs.cache
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\obj\Debug\net472\BuildCustomer.AssemblyInfo.cs
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\obj\Debug\net472\BuildCustomer.csproj.CoreCompileInputs.cache
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\bin\Debug\net472\BuildCustomer.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\bin\Debug\net472\BuildCustomer.pdb
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\bin\Debug\net472\Assembly-CSharp-firstpass_publicized.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\bin\Debug\net472\Assembly-CSharp_publicized.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\obj\Debug\net472\BuildCustomer.csproj.CopyComplete
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\obj\Debug\net472\BuildCustomer.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\BuildCustomer\obj\Debug\net472\BuildCustomer.pdb

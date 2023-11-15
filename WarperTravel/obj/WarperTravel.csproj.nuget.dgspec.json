@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\eterna_dark\\Documents\\GitHub\\snmods\\WarperTravel\\WarperTravel.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\eterna_dark\\Documents\\GitHub\\snmods\\WarperTravel\\WarperTravel.csproj": {
+      "version": "0.1.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\eterna_dark\\Documents\\GitHub\\snmods\\WarperTravel\\WarperTravel.csproj",
+        "projectName": "WarperTravel",
+        "projectPath": "C:\\Users\\eterna_dark\\Documents\\GitHub\\snmods\\WarperTravel\\WarperTravel.csproj",
+        "packagesPath": "C:\\Users\\eterna_dark\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\eterna_dark\\Documents\\GitHub\\snmods\\WarperTravel\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\eterna_dark\\Documents\\GitHub\\snmods\\WarperTravel\\NuGet.Config",
+          "C:\\Users\\eterna_dark\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.bepinex.dev/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "BepInEx.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.*, )"
+            },
+            "BepInEx.Core": {
+              "target": "Package",
+              "version": "[5.*, )"
+            },
+            "BepInEx.PluginInfoProps": {
+              "target": "Package",
+              "version": "[1.*, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "UnityEngine.Modules": {
+              "include": "Compile",
+              "target": "Package",
+              "version": "[2019.4.37, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

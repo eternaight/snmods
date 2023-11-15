@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wc44AilBpLSZ4Dl9UG8TWghbwYma+QMyhCl6WntJ6nO0N7JwEJsxXF2+IsUP4SseXyx1SS+CE0NFZ9C+Z7sMug==",
+  "dgSpecHash": "cxgu8dzOtWjSKyns3oahLKSzbB9mpecmw8d7h5DbhdrzZFXHRIdEPq4hErm3dDXW5/rd547AlZ9bp1z++2Dksw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\eterna_dark\\Documents\\snmods\\NewPlugin\\NewPlugin.csproj",
+  "projectFilePath": "C:\\Users\\eterna_dark\\Documents\\GitHub\\snmods\\NewPlugin\\NewPlugin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eterna_dark\\.nuget\\packages\\bepinex.analyzers\\1.0.8\\bepinex.analyzers.1.0.8.nupkg.sha512",
     "C:\\Users\\eterna_dark\\.nuget\\packages\\bepinex.baselib\\5.4.20\\bepinex.baselib.5.4.20.nupkg.sha512",
@@ -10,7 +10,7 @@
     "C:\\Users\\eterna_dark\\.nuget\\packages\\bepinex.plugininfoprops\\1.1.0\\bepinex.plugininfoprops.1.1.0.nupkg.sha512",
     "C:\\Users\\eterna_dark\\.nuget\\packages\\harmonyx\\2.7.0\\harmonyx.2.7.0.nupkg.sha512",
     "C:\\Users\\eterna_dark\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
-    "C:\\Users\\eterna_dark\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net46\\1.0.2\\microsoft.netframework.referenceassemblies.net46.1.0.2.nupkg.sha512",
+    "C:\\Users\\eterna_dark\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512",
     "C:\\Users\\eterna_dark\\.nuget\\packages\\mono.cecil\\0.11.4\\mono.cecil.0.11.4.nupkg.sha512",
     "C:\\Users\\eterna_dark\\.nuget\\packages\\monomod.runtimedetour\\21.12.13.1\\monomod.runtimedetour.21.12.13.1.nupkg.sha512",
     "C:\\Users\\eterna_dark\\.nuget\\packages\\monomod.utils\\21.12.13.1\\monomod.utils.21.12.13.1.nupkg.sha512",

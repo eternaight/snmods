@@ -6,6 +6,11 @@ namespace NewPlugin.WorldgenAPI
     {
         public static void SerializeBakedBuild(string buildDirectoryPath, BuildBaked bake) 
         {
+            if (!Directory.Exists(buildDirectoryPath))
+            {
+                Directory.CreateDirectory(buildDirectoryPath);
+            }
+
             // write index.txt
             using (StreamWriter s = new(File.Create(Path.Combine(buildDirectoryPath, "index.txt")))) 
             {

@@ -7,17 +7,19 @@ namespace NewPlugin.ProcGen
     {
         private readonly OpenSimplexNoise[] noises;
         private readonly Vector3 baseFrequency;
-        private readonly float baseAmplitude;
+        private readonly float minValue;
+        private readonly float maxValue;
         private readonly float persistence;
         private readonly Vector3 lacunarity;
         private readonly int octaves;
 
-        public FractalNoise(long seed, int octaves, Vector3 baseFrequency, float baseAmplitude, float persistence, Vector3 lacunarity)
+        public FractalNoise(long seed, int octaves, Vector3 baseFrequency, float minValue, float maxValue, float persistence, Vector3 lacunarity)
         {
             this.noises = Enumerable.Range(0, octaves).Select(octave => new OpenSimplexNoise(seed + octave)).ToArray();
             this.octaves = octaves;
             this.baseFrequency = baseFrequency;
-            this.baseAmplitude = baseAmplitude;
+            this.minValue = minValue;
+            this.maxValue = maxValue;
             this.persistence = persistence;
             this.lacunarity = lacunarity;
         }
@@ -25,13 +27,13 @@ namespace NewPlugin.ProcGen
         public float Evaluate(Vector3 pos)
         {
             var frequency = baseFrequency;
-            var amplitude = baseAmplitude;
+            var amplitude = 1f;
             var noise = 0d;
-            var ampSum = 0f;
+            var ampSum = 0d;
 
             for (var o = 0; o < octaves; o++)
             {
-                noise += amplitude * noises[0].Evaluate(pos.x * frequency.x, pos.y * frequency.y, pos.z * frequency.z);
+                noise += amplitude * 0.5f * (noises[o].Evaluate(pos.x * frequency.x, pos.y * frequency.y, pos.z * frequency.z) + 1);
                 ampSum += amplitude;
 
                 frequency.x *= lacunarity.x;
@@ -40,7 +42,7 @@ namespace NewPlugin.ProcGen
                 amplitude *= persistence;
             }
 
-            return (float)noise / ampSum;
+            return Mathf.Lerp(minValue, maxValue, (float)(noise / ampSum));
         }
     }
 }

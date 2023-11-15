@@ -1,0 +1,13 @@
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\bin\Debug\net472\NewPlugin.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\bin\Debug\net472\NewPlugin.pdb
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\bin\Debug\net472\Assembly-CSharp-firstpass_publicized.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\bin\Debug\net472\Assembly-CSharp_publicized.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\obj\Debug\net472\NewPlugin.csproj.AssemblyReference.cache
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\obj\Debug\net472\PluginInfo.cs
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\obj\Debug\net472\NewPlugin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\obj\Debug\net472\NewPlugin.AssemblyInfoInputs.cache
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\obj\Debug\net472\NewPlugin.AssemblyInfo.cs
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\obj\Debug\net472\NewPlugin.csproj.CoreCompileInputs.cache
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\obj\Debug\net472\NewPlugin.csproj.CopyComplete
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\obj\Debug\net472\NewPlugin.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\NewPlugin\obj\Debug\net472\NewPlugin.pdb

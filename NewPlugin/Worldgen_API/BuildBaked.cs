@@ -15,25 +15,25 @@ namespace NewPlugin.WorldgenAPI
             this.dimensions = dimensions;
 
             biomenames = new string[] {
-                "safeShallows",
-                "kelpForest",
-                "grassyPlateaus",
-                "underwaterIslands",
-                "mushroomForest",
-                "kooshZone",
-                "grandReef",
-                "arctic",
-                "inactiveLavaZone",
-                "unassigned",
-                "crashZone",
-                "void",
+                "safeShallows",         // 0
+                "kelpForest",           // 1
+                "grassyPlateaus",       // 2
+                "underwaterIslands",    // 3
+                "mushroomForest",       // 4
+                "kooshZone",            // 5
+                "grandReef",            // 6
+                "arctic",               // 7
+                "inactiveLavaZone",     // 8
+                "unassigned",           // 9
+                "crashZone",            // 10
+                "void",                 // 11
                 "sparseReef",
                 "dunes",
-                "bloodKelp",
+                "bloodKelp",            // 14
                 "mountains",
                 "seaTreaderPath",
                 "bloodKelpTwo",
-                "CragField"
+                "CragField"             // 18
             };
 
             var biomemapSize = dimensions.SurfaceBiomemapSize;
@@ -42,7 +42,7 @@ namespace NewPlugin.WorldgenAPI
             {
                 for (int x = 0; x < biomemapSize.x; x++)
                 {
-                    biomemap[x + z * biomemapSize.x] = 1;
+                    biomemap[x + z * biomemapSize.x] = 11;
                 }
             }
             biomemap[biomemap.Length - 2] = (byte)(biomemapSize.x / 64);
@@ -56,9 +56,9 @@ namespace NewPlugin.WorldgenAPI
             // batch objects array
             public readonly List<SerializedEntityData> batchEntities;
             // cell data
-            public readonly BuildEntityCell[] batchCells;
+            public readonly BuildEntityCell[][] batchCells;
 
-            public BuildBakedBatch(OctNodeData[][] octNodeDatas, List<SerializedEntityData> batchEntities, BuildEntityCell[] batchCells)
+            public BuildBakedBatch(OctNodeData[][] octNodeDatas, List<SerializedEntityData> batchEntities, BuildEntityCell[][] batchCells)
             {
                 this.octNodeDatas = octNodeDatas;
                 this.batchEntities = batchEntities;
@@ -71,15 +71,13 @@ namespace NewPlugin.WorldgenAPI
             public readonly List<SerializedEntityData> entityList;
             public readonly Int3 localCellId;
             public readonly int level;
-            public readonly Int3 originVoxel;
 
-            public BuildEntityCell(Int3 localCellId, int level, Int3 originVoxel) {
+            public BuildEntityCell(Int3 localCellId, int level, UnityEngine.Vector3 rootPosition) {
                 this.localCellId = localCellId;
                 this.level = level;
-                this.originVoxel = originVoxel;
 
                 entityList = new List<SerializedEntityData>() {
-                    SerializedEntityData.CellRoot(originVoxel.ToVector3() + Plugin.config.voxelZero)
+                    SerializedEntityData.CellRoot(rootPosition)
                 };
             }
         }

@@ -38,12 +38,40 @@ namespace NewPlugin.WorldgenAPI
 
         internal OctNodeData EncodeAsOctNodeData()
         {
-            return new NewPlugin.OctNodeData(
+            return new OctNodeData(
                 Blocktype,
                 Density
             );
         }
+
+        public void Union(VoxelPayload another) => Union(another.signedDistance, another.solidType);
+        public void Union(float anotherDistance, int anotherType)
+        {
+            if (anotherDistance > signedDistance)
+            {
+                signedDistance = anotherDistance;
+                solidType = anotherType;
+            }
+        }
+        public void Intersection(VoxelPayload another) => Intersection(another.signedDistance, another.solidType);
+        public void Intersection(float anotherDist, int anotherType)
+        {
+            if (anotherDist < signedDistance)
+            {
+                signedDistance = anotherDist;
+                solidType = anotherType;
+            }
+        }
+        public void Cut(VoxelPayload another) => Cut(another.signedDistance, another.solidType);
+        public void Cut(float anotherDistance, int anotherType)
+        {
+            if (-anotherDistance < signedDistance)
+            {
+                signedDistance = anotherDistance;
+                solidType = anotherType;
+            }
+        }
     }
     
-    public delegate VoxelPayload TreePopulatingFunction(Int3 voxel);
+    public delegate VoxelPayload TreeFillingFunction(Int3 voxel);
 }

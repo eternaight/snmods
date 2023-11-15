@@ -1,63 +1,81 @@
-﻿using BepInEx;
+﻿using System.IO;
+using BepInEx;
 using BepInEx.Logging;
-using HarmonyLib;
 using NewPlugin.WorldgenAPI;
-using UnityEngine;
 
 namespace NewPlugin
 {
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInPlugin("com.eterna.fringingreefeditor", "FringingReefEditor", "0.1")]
     public class Plugin : BaseUnityPlugin
     {
+        /*
+            TODO: add a thign to read existing builds into a TreeEverythingBuild
+            this is actually huge if true
+        */
+
         public static ManualLogSource logSource;
-        public static WorldLaunchConfig config;
+
+        // thanks to: http://stackoverflow.com/questions/52797/ddg#283917
+        public static string AssemblyDirectory
+        {
+            get
+            {
+                string codeBase = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+                var uri = new System.UriBuilder(codeBase);
+                string path = System.Uri.UnescapeDataString(uri.Path);
+                return Path.GetDirectoryName(path);
+            }
+        }
+
+        public static string GetPluginPath(string localPath)
+        {
+            return Path.Combine(AssemblyDirectory, localPath);
+        }
         
         private void Awake()
         {
             // Plugin startup logic
-            var harmony = new Harmony(PluginInfo.PLUGIN_GUID);
-            harmony.PatchAll();
-
-            config = new WorldLaunchConfig();
             logSource = Logger;
-
-            Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} - Rebuilding world!");
-            RebuildWorld();
-            
-            Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} - Rebuild complete!");
         }
 
-        public static void RebuildWorld() {
+        public static void BuildWorld(string path, BuildDimensions dimensions, IPopulator populator, UnityEngine.Vector3 voxelZeroGlobalPos) {
 
-                var dimensions = new BuildDimensions(
-                    octreeSizeVoxels: 32,
-                    octreeCounts: new Int3(16, 5, 16),
-                    treesPerBatch: Int3.one * 5,
-                    cellsPerBatchLevels: new Int3[] {
-                        Int3.one * 10,
-                        Int3.one * 5,
-                        Int3.one * 5,
-                        Int3.one * 5
-                    },
-                    1
-                );
+                logSource.LogInfo($"Plugin FringingReefEditor : Building at path {path}!");
+
+                // var dimensions = new BuildDimensions(
+                //     octreeSizeVoxels: 32,
+                //     octreeCounts: new Int3(16, 16, 16),
+                //     treesPerBatch: Int3.one * 5,
+                //     cellsPerBatchLevels: new Int3[] {
+                //         Int3.one * 10,
+                //         Int3.one * 5,
+                //         Int3.one * 5,
+                //         Int3.one * 5
+                //     },
+                //     1
+                // );
 
                 var blueprint = new BuildBlueprint_TreeEverything(dimensions);
 
+                // create log file
+                // var logfile_path = Path.Combine(AssemblyDirectory, "world_rebuild_log.txt");
+                // var logfile_stream = File.Open(logfile_path, FileMode.Create);
+                // var logfile_writer = new StreamWriter(logfile_stream);
+                var sw = new System.Diagnostics.Stopwatch();
+                sw.Start();
+
                 // do stuff
-                var populator = new TestPopulator(dimensions);
-                blueprint.trees.ForEach(tree => tree.Populate(populator.PopulateVoxel));
-                logSource.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} : RebuildWorld - Populated voxels!");
+                populator.Sprinkle(blueprint);
 
-                var bake = blueprint.Bake();
-                logSource.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} : RebuildWorld - Baked build!");
+                sw.Stop();
+                logSource.LogInfo($"Plugin FringingReefEditor : Populated voxels! ({sw.Elapsed.TotalSeconds})");
+                sw.Restart();
 
-                BuildSerializer.SerializeBakedBuild(config.worldDir, bake);
-        }
+                var bake = blueprint.Bake(voxelZeroGlobalPos);
+                sw.Stop();
+                logSource.LogInfo($"Plugin FringingReefEditor : Baked build! ({sw.Elapsed.TotalSeconds})");
 
-        public class WorldLaunchConfig {
-            public readonly string worldDir = "C:\\Games\\Steam\\steamapps\\common\\Subnautica\\Subnautica_Data\\StreamingAssets\\SNUnmanagedData\\Build19";
-            public readonly Vector3 voxelZero = new (-256, -80, -256);
+                BuildSerializer.SerializeBakedBuild(path, bake);
         }
     }
 }

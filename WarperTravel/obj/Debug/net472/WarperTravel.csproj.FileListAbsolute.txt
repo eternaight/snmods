@@ -1,0 +1,16 @@
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\obj\Debug\net472\WarperTravel.csproj.AssemblyReference.cache
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\obj\Debug\net472\PluginInfo.cs
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\obj\Debug\net472\WarperTravel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\obj\Debug\net472\WarperTravel.AssemblyInfoInputs.cache
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\obj\Debug\net472\WarperTravel.AssemblyInfo.cs
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\obj\Debug\net472\WarperTravel.csproj.CoreCompileInputs.cache
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\bin\Debug\net472\WarperTravel.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\bin\Debug\net472\WarperTravel.pdb
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\bin\Debug\net472\Assembly-CSharp-firstpass_publicized.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\bin\Debug\net472\Assembly-CSharp_publicized.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\bin\Debug\net472\Nautilus.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\obj\Debug\net472\WarperTravel.csproj.CopyComplete
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\obj\Debug\net472\WarperTravel.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\obj\Debug\net472\WarperTravel.pdb
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\bin\Debug\net472\BuildCustomer.dll
+C:\Users\eterna_dark\Documents\GitHub\snmods\WarperTravel\bin\Debug\net472\NewPlugin.dll
